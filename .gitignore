@@ -1,0 +1,60 @@
+## Build results
+bin/
+obj/
+[Ll]og/
+*.log
+
+## VS User-specific files
+.vscode/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## OS junk
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+## NuGet
+*.nupkg
+*.snupkg
+*.nuspec
+packages/
+project.lock.json
+project.fragment.lock.json
+
+## Rider
+.idea/
+
+## Temporary files
+*.tmp
+*.bak
+*.swp
+*.~*
+
+## Dotnet-specific
+project.assets.json
+*.dbmdl
+*.jfm
+*.cache
+*.pdb
+
+# Coverage/test
+TestResults/
+coverage*.json
+coverage*.xml
+*.coverage
+*.coveragexml
+*.trx
+
+# Others
+*.Publish.xml
+*.publishsettings
+
+# Secrets
+secrets.json
+appsettings.*.json
+app.config
