@@ -28,18 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
+            NavigationPanel = new Panel();
+            ContentPanel = new Panel();
             SuspendLayout();
+            // 
+            // NavigationPanel
+            // 
+            NavigationPanel.Location = new Point(0, 0);
+            NavigationPanel.Margin = new Padding(10);
+            NavigationPanel.Name = "NavigationPanel";
+            NavigationPanel.Size = new Size(838, 100);
+            NavigationPanel.TabIndex = 0;
+            // 
+            // ContentPanel
+            // 
+            ContentPanel.Location = new Point(10, 115);
+            ContentPanel.Name = "ContentPanel";
+            ContentPanel.Size = new Size(812, 554);
+            ContentPanel.TabIndex = 1;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1264, 681);
+            ClientSize = new Size(834, 681);
+            Controls.Add(ContentPanel);
+            Controls.Add(NavigationPanel);
             Name = "Form1";
-            Text = "Estoque App";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Estoque";
+            Load += Form1_Load;
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel NavigationPanel;
+        private Panel ContentPanel;
     }
 }
