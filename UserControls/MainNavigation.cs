@@ -12,6 +12,19 @@ namespace EstoqueApp.UserControls
 {
     public partial class MainNavigation : UserControl
     {
+        #region Actions when a option is selected
+        public Action FileClicked;
+        public Action ProductsClicked;
+        public Action EstoqueClicked;
+        public Action ConfigClicked;
+        public Action HomeClicked;
+        private void pictureBoxHome_Click(object sender, EventArgs e) => HomeClicked?.Invoke();
+        private void pictureBoxFile_Click(object sender, EventArgs e) => FileClicked?.Invoke();
+        private void pictureBoxProducts_Click(object sender, EventArgs e) => ProductsClicked?.Invoke();
+        private void pictureBoxEstoque_Click(object sender, EventArgs e) => EstoqueClicked?.Invoke();
+        private void pictureBoxConfig_Click(object sender, EventArgs e) => ConfigClicked?.Invoke();
+        #endregion
+
         public MainNavigation()
         {
             InitializeComponent();
@@ -20,8 +33,6 @@ namespace EstoqueApp.UserControls
         private void MainNavigation_Load(object sender, EventArgs e)
         {
             SetPicturesImages();
-
-
         }
 
         private void SetPicturesImages()
@@ -32,11 +43,5 @@ namespace EstoqueApp.UserControls
             pictureBoxEstoque.Image = Image.FromFile("Resources/estoque.png");
             pictureBoxConfig.Image = Image.FromFile("Resources/config.png");
         }
-
-        private void pictureBoxFile_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Arquivo clicked!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
     }
 }

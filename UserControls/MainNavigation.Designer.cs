@@ -71,6 +71,7 @@
             pictureBoxProducts.Size = new Size(80, 80);
             pictureBoxProducts.TabIndex = 9;
             pictureBoxProducts.TabStop = false;
+            pictureBoxProducts.Click += pictureBoxProducts_Click;
             // 
             // labelEstoque
             // 
@@ -89,6 +90,7 @@
             pictureBoxEstoque.Size = new Size(80, 80);
             pictureBoxEstoque.TabIndex = 11;
             pictureBoxEstoque.TabStop = false;
+            pictureBoxEstoque.Click += pictureBoxEstoque_Click;
             // 
             // labelConfiguracoes
             // 
@@ -107,6 +109,7 @@
             pictureBoxConfig.Size = new Size(80, 80);
             pictureBoxConfig.TabIndex = 13;
             pictureBoxConfig.TabStop = false;
+            pictureBoxConfig.Click += pictureBoxConfig_Click;
             // 
             // labelArquivo
             // 
@@ -135,6 +138,7 @@
             pictureBoxHome.Size = new Size(80, 80);
             pictureBoxHome.TabIndex = 15;
             pictureBoxHome.TabStop = false;
+            pictureBoxHome.Click += pictureBoxHome_Click;
             // 
             // MainNavigation
             // 
