@@ -42,9 +42,9 @@
             // 
             // ContentPanel
             // 
-            ContentPanel.Location = new Point(10, 115);
+            ContentPanel.Location = new Point(112, 113);
             ContentPanel.Name = "ContentPanel";
-            ContentPanel.Size = new Size(812, 554);
+            ContentPanel.Size = new Size(620, 530);
             ContentPanel.TabIndex = 1;
             // 
             // Form1
