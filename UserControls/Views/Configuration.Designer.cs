@@ -28,30 +28,93 @@
         /// </summary>
         private void InitializeComponent()
         {
+            label2 = new Label();
             label1 = new Label();
+            label3 = new Label();
+            textBox1 = new TextBox();
+            label4 = new Label();
+            comboBox1 = new ComboBox();
             SuspendLayout();
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F);
+            label2.Location = new Point(34, 63);
+            label2.Name = "label2";
+            label2.Size = new Size(268, 21);
+            label2.TabIndex = 6;
+            label2.Text = "Ajuste as configurações do aplicativo.";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(33, 77);
+            label1.Font = new Font("Segoe UI", 22F, FontStyle.Bold);
+            label1.Location = new Point(20, 10);
             label1.Name = "label1";
-            label1.Size = new Size(81, 15);
-            label1.TabIndex = 1;
-            label1.Text = "Configuration";
+            label1.Size = new Size(383, 41);
+            label1.TabIndex = 5;
+            label1.Text = "Configurações do Sistema";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label3.Location = new Point(34, 144);
+            label3.Name = "label3";
+            label3.Size = new Size(149, 21);
+            label3.TabIndex = 7;
+            label3.Text = "Nome da Empresa";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(49, 179);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(194, 23);
+            textBox1.TabIndex = 8;
+            textBox1.Text = "Zeca da silva";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label4.Location = new Point(34, 236);
+            label4.Name = "label4";
+            label4.Size = new Size(121, 21);
+            label4.TabIndex = 9;
+            label4.Text = "Moeda Padrão";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(49, 272);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(194, 23);
+            comboBox1.TabIndex = 10;
             // 
             // Configuration
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(comboBox1);
+            Controls.Add(label4);
+            Controls.Add(textBox1);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(label1);
             Name = "Configuration";
+            Size = new Size(620, 530);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
+        private Label label2;
         private Label label1;
+        private Label label3;
+        private TextBox textBox1;
+        private Label label4;
+        private ComboBox comboBox1;
     }
 }
