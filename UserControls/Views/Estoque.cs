@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EstoqueApp.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace EstoqueApp.UserControls.Views
 {
     public partial class Estoque : UserControl
     {
-        public Estoque()
+        private ProdutosHandler produtosHandler;
+        public Estoque(ProdutosHandler _produtosHandler)
         {
             InitializeComponent();
+
+            produtosHandler = _produtosHandler;
         }
     }
 }

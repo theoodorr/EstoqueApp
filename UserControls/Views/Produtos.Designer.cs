@@ -30,10 +30,14 @@
         {
             label1 = new Label();
             label2 = new Label();
-            dataGridView1 = new DataGridView();
+            dataGridView = new DataGridView();
+            ProductCode = new DataGridViewTextBoxColumn();
+            ProductName = new DataGridViewTextBoxColumn();
+            ProductPrice = new DataGridViewTextBoxColumn();
+            ProductQuantity = new DataGridViewTextBoxColumn();
             button1 = new Button();
             button2 = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -56,13 +60,47 @@
             label2.TabIndex = 2;
             label2.Text = "Aqui você pode adicionar, editar e remover produtos";
             // 
-            // dataGridView1
+            // dataGridView
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(34, 108);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(547, 365);
-            dataGridView1.TabIndex = 3;
+            dataGridView.AllowUserToAddRows = false;
+            dataGridView.AllowUserToDeleteRows = false;
+            dataGridView.AllowUserToResizeColumns = false;
+            dataGridView.AllowUserToResizeRows = false;
+            dataGridView.BackgroundColor = SystemColors.Control;
+            dataGridView.BorderStyle = BorderStyle.None;
+            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView.Columns.AddRange(new DataGridViewColumn[] { ProductCode, ProductName, ProductPrice, ProductQuantity });
+            dataGridView.Location = new Point(34, 108);
+            dataGridView.MultiSelect = false;
+            dataGridView.Name = "dataGridView";
+            dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView.Size = new Size(547, 365);
+            dataGridView.TabIndex = 3;
+            // 
+            // ProductCode
+            // 
+            ProductCode.Frozen = true;
+            ProductCode.HeaderText = "Código";
+            ProductCode.Name = "ProductCode";
+            ProductCode.ReadOnly = true;
+            // 
+            // ProductName
+            // 
+            ProductName.HeaderText = "Nome do Produto";
+            ProductName.Name = "ProductName";
+            ProductName.ReadOnly = true;
+            // 
+            // ProductPrice
+            // 
+            ProductPrice.HeaderText = "Preço";
+            ProductPrice.Name = "ProductPrice";
+            ProductPrice.ReadOnly = true;
+            // 
+            // ProductQuantity
+            // 
+            ProductQuantity.HeaderText = "Quantidade";
+            ProductQuantity.Name = "ProductQuantity";
+            ProductQuantity.ReadOnly = true;
             // 
             // button1
             // 
@@ -88,12 +126,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridView);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "Produtos";
             Size = new Size(620, 530);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -102,8 +140,12 @@
 
         private Label label1;
         private Label label2;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridView;
         private Button button1;
         private Button button2;
+        private DataGridViewTextBoxColumn ProductCode;
+        private DataGridViewTextBoxColumn ProductName;
+        private DataGridViewTextBoxColumn ProductPrice;
+        private DataGridViewTextBoxColumn ProductQuantity;
     }
 }

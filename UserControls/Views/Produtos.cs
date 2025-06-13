@@ -1,20 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using EstoqueApp.Models;
+using EstoqueApp.Services;
 
 namespace EstoqueApp.UserControls.Views
 {
     public partial class Produtos : UserControl
     {
-        public Produtos()
+        private ProdutosHandler produtosHandler;
+        public Produtos(ProdutosHandler _produtosHandler)
         {
             InitializeComponent();
+
+            produtosHandler = _produtosHandler;
+
+            dataGridView.Rows.Clear();
+            foreach (Produto produto in _produtosHandler.GetProdutos())
+            {
+                dataGridView.Rows.Add(produto.Code, produto.Name, $"R$ {produto.Price}", produto.Quantity);
+            }
+            
+            
         }
+
     }
 }

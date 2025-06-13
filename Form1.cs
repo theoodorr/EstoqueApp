@@ -1,4 +1,5 @@
 
+using EstoqueApp.Services;
 using EstoqueApp.UserControls;
 using EstoqueApp.UserControls.Views;
 
@@ -23,12 +24,15 @@ namespace EstoqueApp
         private UserControl _estoque;
         private UserControl _config;
         private UserControl _home;
+        private ProdutosHandler produtosHandler;
         public Form1()
         {
             InitializeComponent();
 
-            _produtos = new Produtos();
-            _estoque = new Estoque();
+            produtosHandler = new();
+
+            _produtos = new Produtos(produtosHandler);
+            _estoque = new Estoque(produtosHandler);
             _config = new Configuration();
             _home = new Home();
             CurrentContent = _home;

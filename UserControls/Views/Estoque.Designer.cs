@@ -35,10 +35,10 @@
             label4 = new Label();
             label3 = new Label();
             groupBox2 = new GroupBox();
+            label7 = new Label();
             button2 = new Button();
             label5 = new Label();
             label6 = new Label();
-            label7 = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -116,6 +116,16 @@
             groupBox2.TabIndex = 6;
             groupBox2.TabStop = false;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12F);
+            label7.Location = new Point(19, 62);
+            label7.Name = "label7";
+            label7.Size = new Size(81, 21);
+            label7.TabIndex = 10;
+            label7.Text = "o estoque.";
+            // 
             // button2
             // 
             button2.Location = new Point(19, 97);
@@ -144,16 +154,6 @@
             label6.Size = new Size(180, 30);
             label6.TabIndex = 7;
             label6.Text = "Saída de estoque";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 12F);
-            label7.Location = new Point(19, 62);
-            label7.Name = "label7";
-            label7.Size = new Size(81, 21);
-            label7.TabIndex = 10;
-            label7.Text = "o estoque.";
             // 
             // Estoque
             // 
