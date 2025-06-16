@@ -6,7 +6,7 @@ public class Produto
 
     public string Code;
 
-    public float Price;
+    public decimal Price;
 
     public int Quantity;
 
