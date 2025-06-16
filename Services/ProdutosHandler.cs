@@ -25,4 +25,10 @@ public class ProdutosHandler
     {
         return produtos;
     }
+
+    public Produto GetItemByName(string name)
+    {
+        return produtos.FirstOrDefault(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase))
+               ?? throw new ArgumentException($"Produto com nome '{name}' não encontrado.");
+    }
 }
