@@ -22,6 +22,20 @@ public class ProdutosHandler
         produtos.Add(produto);
     }
 
+    public void AddEntry(Produto produto, int quantity)
+    {
+        var existingProduct = produtos.FirstOrDefault(p => p.Name.Equals(produto.Name, StringComparison.OrdinalIgnoreCase));
+        if (existingProduct != null)
+        {
+            existingProduct.Quantity += quantity;
+        }
+        else
+        {
+            produto.Quantity = quantity;
+            produtos.Add(produto);
+        }
+    }
+
     public List<Produto> GetProdutos()
     {
         return produtos;

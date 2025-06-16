@@ -6,6 +6,7 @@ namespace EstoqueApp.UserControls.Estoque
     public partial class EstoqueNewEntry : UserControl
     {
         public Action GoBack;
+        public Action NewEntryAdded;
         private ProdutosHandler produtosHandler;
         private Produto selectedProduto;
         private Produto SelectedProduto
@@ -33,6 +34,18 @@ namespace EstoqueApp.UserControls.Estoque
             produtosHandler = _produtosHandler;
 
             btnVoltar.Click += (sender, e) => { GoBack?.Invoke(); };
+            btnNewEntry.Click += (sender, e) => 
+            {
+                if (SelectedProduto is not null)
+                {
+                    produtosHandler.AddEntry(SelectedProduto, (int)inputQuantidade.Value);
+                    NewEntryAdded?.Invoke();
+                }
+                else
+                {
+                    MessageBox.Show("Selecione um produto válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            };
         }
 
         private void EstoqueNewEntry_Load(object sender, EventArgs e)

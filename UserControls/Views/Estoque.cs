@@ -49,6 +49,8 @@ namespace EstoqueApp.UserControls.Views
         {
             EstoqueNewEntry newEntry = new(produtosHandler);
             newEntry.GoBack = () => CurrentView = estoqueHome;
+            newEntry.NewEntryAdded = () => CurrentView = estoqueHome;
+            
             CurrentView = newEntry;
         }
     }
