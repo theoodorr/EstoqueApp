@@ -17,6 +17,7 @@ namespace EstoqueApp
                 {
                     ContentPanel.Controls.Clear();
                     ContentPanel.Controls.Add(value);
+                    _currentContent = value;
                 }
             }
         }
@@ -46,10 +47,23 @@ namespace EstoqueApp
             NavigationPanel.Controls.Clear();
             NavigationPanel.Controls.Add(navigationPanel);
 
-            navigationPanel.ProductsClicked += () => CurrentContent = _produtos;
-            navigationPanel.EstoqueClicked += () => CurrentContent = _estoque;
-            navigationPanel.ConfigClicked += () => CurrentContent = _config;
-            navigationPanel.HomeClicked += () => CurrentContent = _home;
+            navigationPanel.ProductsClicked += () =>
+            {
+                _produtos = new Produtos(produtosHandler);
+                CurrentContent = _produtos;
+            };
+            navigationPanel.EstoqueClicked += () =>
+            {
+                if (CurrentContent.Name != _estoque.Name) CurrentContent = _estoque;
+            };
+            navigationPanel.ConfigClicked += () =>
+            {
+                if (CurrentContent.Name != _config.Name) CurrentContent = _config;
+            };
+            navigationPanel.HomeClicked += () =>
+            {
+                if (CurrentContent.Name != _home.Name) CurrentContent = _home;
+            };
             navigationPanel.FileClicked += () => FileClicked();
 
 
