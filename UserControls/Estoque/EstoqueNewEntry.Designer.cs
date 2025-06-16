@@ -30,7 +30,7 @@
         {
             label2 = new Label();
             cmbBoxItems = new ComboBox();
-            button1 = new Button();
+            btnAddNewItem = new Button();
             label1 = new Label();
             inputQuantidade = new NumericUpDown();
             label3 = new Label();
@@ -61,14 +61,15 @@
             cmbBoxItems.TabIndex = 6;
             cmbBoxItems.SelectedIndexChanged += cmbBoxItems_SelectedIndexChanged;
             // 
-            // button1
+            // btnAddNewItem
             // 
-            button1.Location = new Point(327, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(27, 23);
-            button1.TabIndex = 7;
-            button1.Text = "+";
-            button1.UseVisualStyleBackColor = true;
+            btnAddNewItem.Location = new Point(327, 3);
+            btnAddNewItem.Name = "btnAddNewItem";
+            btnAddNewItem.Size = new Size(27, 23);
+            btnAddNewItem.TabIndex = 7;
+            btnAddNewItem.Text = "+";
+            btnAddNewItem.UseVisualStyleBackColor = true;
+            btnAddNewItem.Click += btnAddNewItem_Click;
             // 
             // label1
             // 
@@ -161,7 +162,7 @@
             Controls.Add(label3);
             Controls.Add(inputQuantidade);
             Controls.Add(label1);
-            Controls.Add(button1);
+            Controls.Add(btnAddNewItem);
             Controls.Add(cmbBoxItems);
             Controls.Add(label2);
             Name = "EstoqueNewEntry";
@@ -176,7 +177,7 @@
 
         private Label label2;
         private ComboBox cmbBoxItems;
-        private Button button1;
+        private Button btnAddNewItem;
         private Label label1;
         private NumericUpDown inputQuantidade;
         private Label label3;

@@ -1,14 +1,5 @@
 ﻿using EstoqueApp.Models;
 using EstoqueApp.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace EstoqueApp.UserControls.Estoque
 {
@@ -16,7 +7,6 @@ namespace EstoqueApp.UserControls.Estoque
     {
         public Action GoBack;
         private ProdutosHandler produtosHandler;
-
         private Produto selectedProduto;
         private Produto SelectedProduto
         {
@@ -25,6 +15,12 @@ namespace EstoqueApp.UserControls.Estoque
             {
                 if (value is not null && value is Produto produto)
                 {
+                    if (produtosHandler.IsNew(produto))
+                    {
+                        produtosHandler.AddProduto(produto);
+                        cmbBoxItems.Items.Add(produto.Name);
+                        cmbBoxItems.SelectedItem = produto.Name;
+                    }
                     txtBoxValor.Text = $"R$ {produto.Price}";
                     selectedProduto = produto;
                 }
@@ -71,7 +67,19 @@ namespace EstoqueApp.UserControls.Estoque
             if (SelectedProduto is not null)
             {
                 UpdateTotalPrice();
-            }            
+            }
+        }
+
+        private void btnAddNewItem_Click(object sender, EventArgs e)
+        {
+            NewItem newItemForm = new NewItem();
+            newItemForm.OnSave += (produto) =>
+            {
+                SelectedProduto = produto;
+                UpdateTotalPrice();
+            };
+
+            newItemForm.ShowDialog();
         }
     }
 }

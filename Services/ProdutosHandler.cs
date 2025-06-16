@@ -1,4 +1,5 @@
 ﻿using EstoqueApp.Models;
+using System.Xml.Linq;
 
 namespace EstoqueApp.Services;
 
@@ -11,8 +12,8 @@ public class ProdutosHandler
     {
         produtos = new()
         {
-            new("Maça"){Code = "1", Price = 0.5f, Quantity = 3},
-            new("Banana"){Code = "2", Price = 1.0f, Quantity = 5}
+            new("Maça"){Code = "1", Price = 0.5m, Quantity = 3},
+            new("Banana"){Code = "2", Price = 1.0m, Quantity = 5}
         };
     }
 
@@ -30,5 +31,11 @@ public class ProdutosHandler
     {
         return produtos.FirstOrDefault(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase))
                ?? throw new ArgumentException($"Produto com nome '{name}' não encontrado.");
+    }
+
+    internal bool IsNew(Produto produto)
+    {
+        var find = produtos.FirstOrDefault(p => p.Name.Equals(produto.Name, StringComparison.OrdinalIgnoreCase));
+        return find is null;
     }
 }
