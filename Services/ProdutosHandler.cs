@@ -7,14 +7,12 @@ public class ProdutosHandler
 {
     private List<Produto> produtos;
 
-
-    public ProdutosHandler()
+    private DataPersistence dataPersistence;
+    public ProdutosHandler(DataPersistence _dataPersistence)
     {
-        produtos = new()
-        {
-            new("Maça"){Code = "1", Price = 0.5m, Quantity = 3},
-            new("Banana"){Code = "2", Price = 1.0m, Quantity = 5}
-        };
+        dataPersistence = _dataPersistence;
+        produtos = [];
+        dataPersistence.ImportarProdutosDeJson(ref produtos);
     }
 
     public void AddProduto(Produto produto)
@@ -73,6 +71,9 @@ public class ProdutosHandler
     {
         // Limpar lixo
         produtos.RemoveAll(p => p.Quantity <= 0);
+
+        // Salvar
+        dataPersistence.ExportarProdutosParaJson(produtos);
     }
 
     public void UpdateItem(Produto selectedProduto, Produto editedProduto)
@@ -107,5 +108,10 @@ public class ProdutosHandler
         {
             throw new ArgumentException($"Produto com nome '{produto.Name}' não encontrado.");
         }
+    }
+
+    internal void SetProdutos(List<Produto> produtos)
+    {
+        this.produtos = produtos;
     }
 }

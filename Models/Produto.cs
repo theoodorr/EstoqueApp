@@ -2,13 +2,13 @@
 
 public class Produto
 {
-    public string Name;
+    public string Name { get; set; }
 
-    public string Code;
+    public string Code { get; set; }
 
-    public decimal Price;
+    public decimal Price { get; set; }
 
-    public int Quantity;
+    public int Quantity { get; set; }
 
     public Produto(string name)
     {

@@ -117,9 +117,9 @@
             labelArquivo.ForeColor = Color.White;
             labelArquivo.Location = new Point(251, 83);
             labelArquivo.Name = "labelArquivo";
-            labelArquivo.Size = new Size(49, 15);
+            labelArquivo.Size = new Size(51, 15);
             labelArquivo.TabIndex = 8;
-            labelArquivo.Text = "Arquivo";
+            labelArquivo.Text = "Exportar";
             // 
             // labelInicio
             // 

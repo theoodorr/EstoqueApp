@@ -26,11 +26,14 @@ namespace EstoqueApp
         private UserControl _config;
         private UserControl _home;
         private ProdutosHandler produtosHandler;
+
+        private DataPersistence dataPersistence;
         public Form1()
         {
             InitializeComponent();
 
-            produtosHandler = new();
+            dataPersistence = new();
+            produtosHandler = new(dataPersistence);
 
             _produtos = new Produtos(produtosHandler);
             _estoque = new Estoque(produtosHandler);
@@ -79,8 +82,6 @@ namespace EstoqueApp
                 if (CurrentContent.Name != _home.Name) CurrentContent = _home;
             };
             navigationPanel.FileClicked += () => FileClicked();
-
-
         }
 
         private void FileClicked()

@@ -45,6 +45,7 @@ public partial class EstoqueNewOut : UserControl
                 if (MessageBox.Show("Deseja remover o produto do estoque?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     produtosHandler.AddOut(SelectedProduto, (int)inputQuantidade.Value);
+                    produtosHandler.SaveProdutos();
                     NewOutAdded?.Invoke();
                 }
             }
