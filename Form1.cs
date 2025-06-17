@@ -36,6 +36,24 @@ namespace EstoqueApp
             _estoque = new Estoque(produtosHandler);
             _config = new Configuration();
             _home = new Home();
+            var home = _home as Home;
+            home!.VerProdutosClicked = () =>
+            {
+                CurrentContent = _produtos;
+            };
+            home.EntradaDeEstoqueClicked = () =>
+            {
+                CurrentContent = _estoque;
+                (_estoque as Estoque)!.NewEntryInvoked();
+            };
+            home.ImportarTabelaClicked = () =>
+            {
+                // implementar
+            };
+            home.ExportarTabelaClicked = () =>
+            {
+                // implementar
+            };
             CurrentContent = _home;
 
         }

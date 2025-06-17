@@ -63,5 +63,10 @@ namespace EstoqueApp.UserControls.Views
 
             CurrentView = newEntry;
         }
+
+        public void NewEntryInvoked()
+        {
+            NewEntryClicked();
+        }
     }
 }

@@ -38,6 +38,7 @@
             label1 = new Label();
             cmbBoxItems = new ComboBox();
             label2 = new Label();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)inputQuantidade).BeginInit();
             SuspendLayout();
             // 
@@ -45,7 +46,7 @@
             // 
             labelTotal.AutoSize = true;
             labelTotal.Font = new Font("Segoe UI", 12F);
-            labelTotal.Location = new Point(221, 142);
+            labelTotal.Location = new Point(223, 200);
             labelTotal.Name = "labelTotal";
             labelTotal.Size = new Size(33, 21);
             labelTotal.TabIndex = 28;
@@ -54,7 +55,7 @@
             // 
             // btnVoltar
             // 
-            btnVoltar.Location = new Point(97, 206);
+            btnVoltar.Location = new Point(99, 264);
             btnVoltar.Name = "btnVoltar";
             btnVoltar.Size = new Size(108, 34);
             btnVoltar.TabIndex = 27;
@@ -65,7 +66,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(160, 142);
+            label4.Location = new Point(162, 200);
             label4.Name = "label4";
             label4.Size = new Size(45, 21);
             label4.TabIndex = 26;
@@ -73,7 +74,7 @@
             // 
             // btnNewOut
             // 
-            btnNewOut.Location = new Point(221, 206);
+            btnNewOut.Location = new Point(223, 264);
             btnNewOut.Name = "btnNewOut";
             btnNewOut.Size = new Size(108, 34);
             btnNewOut.TabIndex = 25;
@@ -82,7 +83,7 @@
             // 
             // txtBoxCurrentQnt
             // 
-            txtBoxCurrentQnt.Location = new Point(259, 47);
+            txtBoxCurrentQnt.Location = new Point(261, 105);
             txtBoxCurrentQnt.Name = "txtBoxCurrentQnt";
             txtBoxCurrentQnt.ReadOnly = true;
             txtBoxCurrentQnt.Size = new Size(121, 23);
@@ -93,7 +94,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(97, 47);
+            label3.Location = new Point(99, 105);
             label3.Name = "label3";
             label3.Size = new Size(129, 21);
             label3.TabIndex = 23;
@@ -101,7 +102,7 @@
             // 
             // inputQuantidade
             // 
-            inputQuantidade.Location = new Point(259, 89);
+            inputQuantidade.Location = new Point(261, 147);
             inputQuantidade.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             inputQuantidade.Name = "inputQuantidade";
             inputQuantidade.Size = new Size(121, 23);
@@ -114,7 +115,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(97, 91);
+            label1.Location = new Point(99, 149);
             label1.Name = "label1";
             label1.Size = new Size(150, 21);
             label1.TabIndex = 21;
@@ -123,7 +124,7 @@
             // cmbBoxItems
             // 
             cmbBoxItems.FormattingEnabled = true;
-            cmbBoxItems.Location = new Point(259, 1);
+            cmbBoxItems.Location = new Point(261, 59);
             cmbBoxItems.Name = "cmbBoxItems";
             cmbBoxItems.Size = new Size(121, 23);
             cmbBoxItems.TabIndex = 19;
@@ -133,16 +134,27 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(97, 3);
+            label2.Location = new Point(99, 61);
             label2.Name = "label2";
             label2.Size = new Size(41, 21);
             label2.TabIndex = 18;
             label2.Text = "Item";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label5.Location = new Point(47, 12);
+            label5.Name = "label5";
+            label5.Size = new Size(97, 21);
+            label5.TabIndex = 29;
+            label5.Text = "Nova Saída";
+            // 
             // EstoqueNewOut
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label5);
             Controls.Add(labelTotal);
             Controls.Add(btnVoltar);
             Controls.Add(label4);
@@ -173,5 +185,6 @@
         private Label label1;
         private ComboBox cmbBoxItems;
         private Label label2;
+        private Label label5;
     }
 }

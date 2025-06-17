@@ -12,9 +12,21 @@ namespace EstoqueApp.UserControls.Views
 {
     public partial class Home : UserControl
     {
+        public Action VerProdutosClicked;
+        public Action EntradaDeEstoqueClicked;
+        public Action ImportarTabelaClicked;
+        public Action ExportarTabelaClicked;
         public Home()
         {
             InitializeComponent();
         }
+
+        private void btnVerProdutos_Click(object sender, EventArgs e) => VerProdutosClicked?.Invoke();
+
+        private void btnEntradaDeEstoque_Click(object sender, EventArgs e) => EntradaDeEstoqueClicked?.Invoke();
+
+        private void btnImportTable_Click(object sender, EventArgs e) => ImportarTabelaClicked?.Invoke();
+
+        private void btnExportTable_Click(object sender, EventArgs e) => ExportarTabelaClicked?.Invoke();
     }
 }
