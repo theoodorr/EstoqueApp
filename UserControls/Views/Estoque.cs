@@ -22,7 +22,7 @@ namespace EstoqueApp.UserControls.Views
             get => currentView;
             set
             {
-                if(value is not null)
+                if (value is not null)
                 {
                     EstoquePanel.Controls.Clear();
                     EstoquePanel.Controls.Add(value);
@@ -41,8 +41,18 @@ namespace EstoqueApp.UserControls.Views
 
             estoqueHome = new EstoqueHome();
             (estoqueHome as EstoqueHome)!.NewEntryClicked += NewEntryClicked;
+            (estoqueHome as EstoqueHome)!.NewOutClicked += NewOutClicked;
 
             CurrentView = estoqueHome;
+        }
+
+        private void NewOutClicked()
+        {
+            EstoqueNewOut newOut = new(produtosHandler);
+            newOut.GoBack = () => CurrentView = estoqueHome;
+            newOut.NewOutAdded = () => CurrentView = estoqueHome;
+
+            CurrentView = newOut;
         }
 
         private void NewEntryClicked()
@@ -50,7 +60,7 @@ namespace EstoqueApp.UserControls.Views
             EstoqueNewEntry newEntry = new(produtosHandler);
             newEntry.GoBack = () => CurrentView = estoqueHome;
             newEntry.NewEntryAdded = () => CurrentView = estoqueHome;
-            
+
             CurrentView = newEntry;
         }
     }

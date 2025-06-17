@@ -52,4 +52,26 @@ public class ProdutosHandler
         var find = produtos.FirstOrDefault(p => p.Name.Equals(produto.Name, StringComparison.OrdinalIgnoreCase));
         return find is null;
     }
+
+    internal void AddOut(Produto produto, int value)
+    {
+        var existingProduct = produtos.FirstOrDefault(p => p.Name.Equals(produto.Name, StringComparison.OrdinalIgnoreCase));
+        if (existingProduct != null)
+        {
+            if (existingProduct.Quantity <= value)
+            {
+                produtos.Remove(existingProduct);
+            }
+            else
+            {
+                existingProduct.Quantity -= value;
+            }
+        }
+    }
+
+    internal void SaveProdutos()
+    {
+        // Limpar lixo
+        produtos.RemoveAll(p => p.Quantity <= 0);
+    }
 }

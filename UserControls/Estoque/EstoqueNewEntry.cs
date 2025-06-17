@@ -33,12 +33,17 @@ namespace EstoqueApp.UserControls.Estoque
 
             produtosHandler = _produtosHandler;
 
-            btnVoltar.Click += (sender, e) => { GoBack?.Invoke(); };
-            btnNewEntry.Click += (sender, e) => 
+            btnVoltar.Click += (sender, e) =>
+            {
+                produtosHandler.SaveProdutos(); 
+                GoBack?.Invoke();
+            };
+            btnNewEntry.Click += (sender, e) =>
             {
                 if (SelectedProduto is not null)
                 {
                     produtosHandler.AddEntry(SelectedProduto, (int)inputQuantidade.Value);
+                    produtosHandler.SaveProdutos();
                     NewEntryAdded?.Invoke();
                 }
                 else

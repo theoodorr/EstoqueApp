@@ -30,7 +30,7 @@
         {
             groupBox2 = new GroupBox();
             label7 = new Label();
-            button2 = new Button();
+            btnNewOut = new Button();
             label5 = new Label();
             label6 = new Label();
             groupBox1 = new GroupBox();
@@ -44,7 +44,7 @@
             // groupBox2
             // 
             groupBox2.Controls.Add(label7);
-            groupBox2.Controls.Add(button2);
+            groupBox2.Controls.Add(btnNewOut);
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(label6);
             groupBox2.Location = new Point(114, 173);
@@ -63,14 +63,14 @@
             label7.TabIndex = 10;
             label7.Text = "o estoque.";
             // 
-            // button2
+            // btnNewOut
             // 
-            button2.Location = new Point(19, 97);
-            button2.Name = "button2";
-            button2.Size = new Size(108, 34);
-            button2.TabIndex = 9;
-            button2.Text = "Nova Saída";
-            button2.UseVisualStyleBackColor = true;
+            btnNewOut.Location = new Point(19, 97);
+            btnNewOut.Name = "btnNewOut";
+            btnNewOut.Size = new Size(108, 34);
+            btnNewOut.TabIndex = 9;
+            btnNewOut.Text = "Nova Saída";
+            btnNewOut.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -152,7 +152,7 @@
 
         private GroupBox groupBox2;
         private Label label7;
-        private Button button2;
+        private Button btnNewOut;
         private Label label5;
         private Label label6;
         private GroupBox groupBox1;

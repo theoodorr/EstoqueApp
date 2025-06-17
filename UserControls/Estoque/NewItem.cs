@@ -18,7 +18,7 @@ namespace EstoqueApp.UserControls.Estoque
             {
                 if (decimal.TryParse(inputValue.Value.ToString(), out decimal valor) && valor >= 0)
                 {
-                    OnSave?.Invoke(new Produto(txtBoxName.Text) { Code = txtBoxCode.Text ?? "0", Price = valor });
+                    OnSave?.Invoke(new Produto(txtBoxName.Text) { Code = txtBoxCode.Text ?? "0", Price = valor, Quantity=0 });
                     this.Close();
                 }
                 else
