@@ -35,24 +35,25 @@ namespace EstoqueApp.UserControls.Estoque
 
             btnVoltar.Click += (sender, e) =>
             {
-                produtosHandler.SaveProdutos(); 
+                produtosHandler.SaveProdutos();
                 GoBack?.Invoke();
             };
             btnNewEntry.Click += (sender, e) =>
             {
-                if (MessageBox.Show("Deseja adicionar o produto ao estoque?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (SelectedProduto is not null)
                 {
-                    if (SelectedProduto is not null)
+                    if (MessageBox.Show("Deseja adicionar o produto ao estoque?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         produtosHandler.AddEntry(SelectedProduto, (int)inputQuantidade.Value);
                         produtosHandler.SaveProdutos();
                         NewEntryAdded?.Invoke();
                     }
-                    else
-                    {
-                        MessageBox.Show("Selecione um produto válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
                 }
+                else
+                {
+                    MessageBox.Show("Selecione um produto válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             };
 
             labelTotal.Text = "";
@@ -72,6 +73,7 @@ namespace EstoqueApp.UserControls.Estoque
             if (!string.IsNullOrWhiteSpace(cmbBoxItems.SelectedItem!.ToString()))
             {
                 SelectedProduto = produtosHandler.GetItemByName(cmbBoxItems.SelectedItem.ToString()!);
+                inputQuantidade.Value = 1;
                 UpdateTotalPrice();
             }
             else

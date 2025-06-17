@@ -34,19 +34,27 @@ namespace EstoqueApp.UserControls.Estoque
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(txtBoxName.Text is not null)
+            if (!string.IsNullOrWhiteSpace(txtBoxName.Text))
             {
-                if (SelectedProduto is not null && (decimal.TryParse(inputValue.Value.ToString(), out decimal valor) && valor >= 0))
+                if (MessageBox.Show($"Deseja confirmar as alterações em {SelectedProduto.Name}?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    Produto editedProduto = new(txtBoxName.Text);
-                    editedProduto.Code = string.IsNullOrWhiteSpace(txtBoxCode.Text) ? 0.ToString() : txtBoxCode.Text;
-                    editedProduto.Price = valor;
-                    editedProduto.Quantity = (int)inputQuantidade.Value;
-                    produtosHandler.UpdateItem(SelectedProduto, editedProduto);
-                    Save?.Invoke();
-                    this.Close();
-                }                
+                    if (SelectedProduto is not null && (decimal.TryParse(inputValue.Value.ToString(), out decimal valor) && valor >= 0))
+                    {
+                        Produto editedProduto = new(txtBoxName.Text);
+                        editedProduto.Code = string.IsNullOrWhiteSpace(txtBoxCode.Text) ? 0.ToString() : txtBoxCode.Text;
+                        editedProduto.Price = valor;
+                        editedProduto.Quantity = (int)inputQuantidade.Value;
+                        produtosHandler.UpdateItem(SelectedProduto, editedProduto);
+                        Save?.Invoke();
+                        this.Close();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("O nome do produto não pode estar vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }

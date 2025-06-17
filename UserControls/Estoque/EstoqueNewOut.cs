@@ -40,18 +40,19 @@ public partial class EstoqueNewOut : UserControl
         btnVoltar.Click += (sender, e) => { GoBack?.Invoke(); };
         btnNewOut.Click += (sender, e) =>
         {
-            if (MessageBox.Show("Deseja remover o produto do estoque?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (SelectedProduto is not null)
             {
-                if (SelectedProduto is not null)
+                if (MessageBox.Show("Deseja remover o produto do estoque?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     produtosHandler.AddOut(SelectedProduto, (int)inputQuantidade.Value);
                     NewOutAdded?.Invoke();
                 }
-                else
-                {
-                    MessageBox.Show("Selecione um produto válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
+            else
+            {
+                MessageBox.Show("Selecione um produto válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         };
 
         labelTotal.Text = "";
@@ -69,6 +70,7 @@ public partial class EstoqueNewOut : UserControl
         if (!string.IsNullOrWhiteSpace(cmbBoxItems.SelectedItem!.ToString()))
         {
             SelectedProduto = produtosHandler.GetItemByName(cmbBoxItems.SelectedItem.ToString()!);
+            inputQuantidade.Value = 1;
             UpdateTotalQuantity();
         }
         else
@@ -80,6 +82,10 @@ public partial class EstoqueNewOut : UserControl
     {
         if (SelectedProduto is not null)
         {
+            if (inputQuantidade.Value >= SelectedProduto.Quantity)
+            {
+                inputQuantidade.Value = SelectedProduto.Quantity;
+            }
             UpdateTotalQuantity();
         }
     }
