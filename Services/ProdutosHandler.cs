@@ -74,4 +74,23 @@ public class ProdutosHandler
         // Limpar lixo
         produtos.RemoveAll(p => p.Quantity <= 0);
     }
+
+    internal void UpdateItem(Produto selectedProduto, Produto editedProduto)
+    {
+        // Atualizar produto existente
+        var existingProduct = produtos.FirstOrDefault(p => p.Name.Equals(selectedProduto.Name, StringComparison.OrdinalIgnoreCase));
+        if (existingProduct != null)
+        {
+            existingProduct.Name = editedProduto.Name;
+            existingProduct.Code = editedProduto.Code;
+            existingProduct.Price = editedProduto.Price;
+            existingProduct.Quantity = editedProduto.Quantity;
+        }
+        else
+        {
+            // Se não existir, adicionar como novo produto
+            produtos.Add(editedProduto);
+        }
+        SaveProdutos();
+    }
 }

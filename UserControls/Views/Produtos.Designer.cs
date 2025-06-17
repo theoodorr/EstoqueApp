@@ -35,8 +35,8 @@
             ProductName = new DataGridViewTextBoxColumn();
             ProductPrice = new DataGridViewTextBoxColumn();
             ProductQuantity = new DataGridViewTextBoxColumn();
-            button1 = new Button();
-            button2 = new Button();
+            btnExport = new Button();
+            btnEdit = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -76,6 +76,7 @@
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView.Size = new Size(547, 365);
             dataGridView.TabIndex = 3;
+            dataGridView.SelectionChanged += dataGridView_SelectionChanged;
             // 
             // ProductCode
             // 
@@ -102,30 +103,33 @@
             ProductQuantity.Name = "ProductQuantity";
             ProductQuantity.ReadOnly = true;
             // 
-            // button1
+            // btnExport
             // 
-            button1.Location = new Point(496, 488);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 4;
-            button1.Text = "Salvar";
-            button1.UseVisualStyleBackColor = true;
+            btnExport.Location = new Point(496, 488);
+            btnExport.Name = "btnExport";
+            btnExport.Size = new Size(75, 23);
+            btnExport.TabIndex = 4;
+            btnExport.Text = "Exportar";
+            btnExport.UseVisualStyleBackColor = true;
+            btnExport.Click += btnExport_Click;
             // 
-            // button2
+            // btnEdit
             // 
-            button2.Location = new Point(415, 488);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 5;
-            button2.Text = "Editar";
-            button2.UseVisualStyleBackColor = true;
+            btnEdit.Enabled = false;
+            btnEdit.Location = new Point(415, 488);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(75, 23);
+            btnEdit.TabIndex = 5;
+            btnEdit.Text = "Editar";
+            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
             // 
             // Produtos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnEdit);
+            Controls.Add(btnExport);
             Controls.Add(dataGridView);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -141,8 +145,8 @@
         private Label label1;
         private Label label2;
         private DataGridView dataGridView;
-        private Button button1;
-        private Button button2;
+        private Button btnExport;
+        private Button btnEdit;
         private DataGridViewTextBoxColumn ProductCode;
         private DataGridViewTextBoxColumn ProductName;
         private DataGridViewTextBoxColumn ProductPrice;

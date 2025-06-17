@@ -79,6 +79,7 @@
             btnSave.TabIndex = 28;
             btnSave.Text = "Salvar";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // inputValue
             // 
@@ -142,8 +143,10 @@
             // 
             // EditItem
             // 
+            AcceptButton = btnSave;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnCancel;
             ClientSize = new Size(284, 231);
             Controls.Add(inputQuantidade);
             Controls.Add(label4);
@@ -159,6 +162,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "EditItem";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Editar item existente";
             ((System.ComponentModel.ISupportInitialize)inputValue).EndInit();
             ((System.ComponentModel.ISupportInitialize)inputQuantidade).EndInit();
