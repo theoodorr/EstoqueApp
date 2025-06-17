@@ -1,11 +1,13 @@
 ﻿using EstoqueApp.Models;
 using EstoqueApp.Services;
 using EstoqueApp.UserControls.Estoque;
+using ClosedXML.Excel;
 
 namespace EstoqueApp.UserControls.Views
 {
     public partial class Produtos : UserControl
     {
+        public System.Action Export;
         private ProdutosHandler produtosHandler;
         private Produto selectedProduto;
         private Produto SelectedProduto
@@ -32,7 +34,7 @@ namespace EstoqueApp.UserControls.Views
                 dataGridView.Rows.Add(produto.Code, produto.Name, $"{Configuration.SelectedCurrencyPrefix} {produto.Price}", produto.Quantity);
             }
 
-
+            Export += () => ExportDataGridToExcel();
         }
 
         private void dataGridView_SelectionChanged(object sender, EventArgs e)
@@ -83,5 +85,45 @@ namespace EstoqueApp.UserControls.Views
                 UpgradeGrid();
             }
         }
+
+
+        private void ExportDataGridToExcel()
+        {
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Dados");
+
+                // Cabeçalhos
+                for (int col = 0; col < dataGridView.Columns.Count; col++)
+                {
+                    worksheet.Cell(1, col + 1).Value = dataGridView.Columns[col].HeaderText;
+                }
+
+                // Dados das células
+                for (int row = 0; row < dataGridView.Rows.Count; row++)
+                {
+                    for (int col = 0; col < dataGridView.Columns.Count; col++)
+                    {
+                        if (dataGridView.Rows[row].IsNewRow) continue; // Ignora a última linha em branco
+                        worksheet.Cell(row + 2, col + 1).Value = dataGridView.Rows[row].Cells[col].Value?.ToString();
+                    }
+                }
+
+                // Salvar o arquivo
+                using (var saveFileDialog = new SaveFileDialog())
+                {
+                    saveFileDialog.Filter = "Excel Files|*.xlsx";
+                    saveFileDialog.Title = "Salvar arquivo Excel";
+                    saveFileDialog.FileName = "dados.xlsx";
+
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        workbook.SaveAs(saveFileDialog.FileName);
+                        MessageBox.Show("Arquivo salvo com sucesso!", "Exportação concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+        }
+
     }
 }

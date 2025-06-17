@@ -52,7 +52,7 @@ namespace EstoqueApp
             };
             home.ExportarTabelaClicked = () =>
             {
-                // implementar
+                (_produtos as Produtos)!.Export?.Invoke();
             };
             CurrentContent = _home;
 
