@@ -47,13 +47,13 @@ public class ProdutosHandler
                ?? throw new ArgumentException($"Produto com nome '{name}' não encontrado.");
     }
 
-    internal bool IsNew(Produto produto)
+    public bool IsNew(Produto produto)
     {
         var find = produtos.FirstOrDefault(p => p.Name.Equals(produto.Name, StringComparison.OrdinalIgnoreCase));
         return find is null;
     }
 
-    internal void AddOut(Produto produto, int value)
+    public void AddOut(Produto produto, int value)
     {
         var existingProduct = produtos.FirstOrDefault(p => p.Name.Equals(produto.Name, StringComparison.OrdinalIgnoreCase));
         if (existingProduct != null)
@@ -69,13 +69,13 @@ public class ProdutosHandler
         }
     }
 
-    internal void SaveProdutos()
+    public void SaveProdutos()
     {
         // Limpar lixo
         produtos.RemoveAll(p => p.Quantity <= 0);
     }
 
-    internal void UpdateItem(Produto selectedProduto, Produto editedProduto)
+    public void UpdateItem(Produto selectedProduto, Produto editedProduto)
     {
         // Atualizar produto existente
         var existingProduct = produtos.FirstOrDefault(p => p.Name.Equals(selectedProduto.Name, StringComparison.OrdinalIgnoreCase));
@@ -92,5 +92,20 @@ public class ProdutosHandler
             produtos.Add(editedProduto);
         }
         SaveProdutos();
+    }
+
+    public void RemoveProduto(Produto produto)
+    {
+        // Remover produto da lista
+        var existingProduct = produtos.FirstOrDefault(p => p.Name.Equals(produto.Name, StringComparison.OrdinalIgnoreCase));
+        if (existingProduct != null)
+        {
+            produtos.Remove(existingProduct);
+            SaveProdutos();
+        }
+        else
+        {
+            throw new ArgumentException($"Produto com nome '{produto.Name}' não encontrado.");
+        }
     }
 }

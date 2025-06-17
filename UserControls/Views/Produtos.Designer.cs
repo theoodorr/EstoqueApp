@@ -35,7 +35,7 @@
             ProductName = new DataGridViewTextBoxColumn();
             ProductPrice = new DataGridViewTextBoxColumn();
             ProductQuantity = new DataGridViewTextBoxColumn();
-            btnExport = new Button();
+            btnDelete = new Button();
             btnEdit = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
@@ -103,15 +103,15 @@
             ProductQuantity.Name = "ProductQuantity";
             ProductQuantity.ReadOnly = true;
             // 
-            // btnExport
+            // btnDelete
             // 
-            btnExport.Location = new Point(496, 488);
-            btnExport.Name = "btnExport";
-            btnExport.Size = new Size(75, 23);
-            btnExport.TabIndex = 4;
-            btnExport.Text = "Exportar";
-            btnExport.UseVisualStyleBackColor = true;
-            btnExport.Click += btnExport_Click;
+            btnDelete.Location = new Point(496, 488);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(75, 23);
+            btnDelete.TabIndex = 4;
+            btnDelete.Text = "Excluir";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnEdit
             // 
@@ -129,7 +129,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(btnEdit);
-            Controls.Add(btnExport);
+            Controls.Add(btnDelete);
             Controls.Add(dataGridView);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -145,7 +145,7 @@
         private Label label1;
         private Label label2;
         private DataGridView dataGridView;
-        private Button btnExport;
+        private Button btnDelete;
         private Button btnEdit;
         private DataGridViewTextBoxColumn ProductCode;
         private DataGridViewTextBoxColumn ProductName;

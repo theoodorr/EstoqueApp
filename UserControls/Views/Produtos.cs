@@ -16,7 +16,7 @@ namespace EstoqueApp.UserControls.Views
                 if (value is not null && value is Produto produto)
                 {
                     selectedProduto = produto;
-                    btnEdit.Enabled = true;
+                    btnDelete.Enabled = btnEdit.Enabled = true;
                 }
             }
         }
@@ -54,6 +54,7 @@ namespace EstoqueApp.UserControls.Views
                 };
                 editItem.ShowDialog();
 
+                btnDelete.Enabled = false;
                 btnEdit.Enabled = false;
                 dataGridView.ClearSelection();
             }
@@ -68,9 +69,19 @@ namespace EstoqueApp.UserControls.Views
             }
         }
 
-        private void btnExport_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-
+            if (SelectedProduto is not null)
+            {
+                if (MessageBox.Show($"Deseja confirmar as exclusão do produto {SelectedProduto.Name}?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    produtosHandler.RemoveProduto(SelectedProduto);
+                }
+                
+                btnDelete.Enabled = btnEdit.Enabled = false;
+                dataGridView.ClearSelection();
+                UpgradeGrid();
+            }
         }
     }
 }
