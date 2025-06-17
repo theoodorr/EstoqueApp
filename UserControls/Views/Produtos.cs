@@ -29,7 +29,7 @@ namespace EstoqueApp.UserControls.Views
             dataGridView.Rows.Clear();
             foreach (Produto produto in produtosHandler.GetProdutos())
             {
-                dataGridView.Rows.Add(produto.Code, produto.Name, $"R$ {produto.Price}", produto.Quantity);
+                dataGridView.Rows.Add(produto.Code, produto.Name, $"{Configuration.SelectedCurrencyPrefix} {produto.Price}", produto.Quantity);
             }
 
 

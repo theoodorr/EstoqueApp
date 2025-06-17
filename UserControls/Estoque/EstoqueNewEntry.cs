@@ -1,5 +1,6 @@
 ﻿using EstoqueApp.Models;
 using EstoqueApp.Services;
+using EstoqueApp.UserControls.Views;
 
 namespace EstoqueApp.UserControls.Estoque
 {
@@ -22,7 +23,7 @@ namespace EstoqueApp.UserControls.Estoque
                         cmbBoxItems.Items.Add(produto.Name);
                         cmbBoxItems.SelectedItem = produto.Name;
                     }
-                    txtBoxValor.Text = $"R$ {produto.Price}";
+                    txtBoxValor.Text = $"{Configuration.SelectedCurrencyPrefix} {produto.Price}";
                     selectedProduto = produto;
                 }
             }
@@ -84,7 +85,7 @@ namespace EstoqueApp.UserControls.Estoque
 
         private void UpdateTotalPrice()
         {
-            labelTotal.Text = $"Total: R$ {SelectedProduto.Price * (int)inputQuantidade.Value}";
+            labelTotal.Text = $"Total: {Configuration.SelectedCurrencyPrefix} {SelectedProduto.Price * (int)inputQuantidade.Value}";
         }
 
         private void inputQuantidade_ValueChanged(object sender, EventArgs e)

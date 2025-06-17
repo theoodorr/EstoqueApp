@@ -31,9 +31,9 @@
             label2 = new Label();
             label1 = new Label();
             label3 = new Label();
-            textBox1 = new TextBox();
+            txtBoxCompanyName = new TextBox();
             label4 = new Label();
-            comboBox1 = new ComboBox();
+            cmbBoxCurrency = new ComboBox();
             SuspendLayout();
             // 
             // label2
@@ -66,13 +66,13 @@
             label3.TabIndex = 7;
             label3.Text = "Nome da Empresa";
             // 
-            // textBox1
+            // txtBoxCompanyName
             // 
-            textBox1.Location = new Point(49, 179);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(194, 23);
-            textBox1.TabIndex = 8;
-            textBox1.Text = "Zeca da silva";
+            txtBoxCompanyName.Location = new Point(49, 179);
+            txtBoxCompanyName.Name = "txtBoxCompanyName";
+            txtBoxCompanyName.Size = new Size(194, 23);
+            txtBoxCompanyName.TabIndex = 8;
+            txtBoxCompanyName.Text = "Zeca da silva";
             // 
             // label4
             // 
@@ -84,26 +84,28 @@
             label4.TabIndex = 9;
             label4.Text = "Moeda Padrão";
             // 
-            // comboBox1
+            // cmbBoxCurrency
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(49, 272);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(194, 23);
-            comboBox1.TabIndex = 10;
+            cmbBoxCurrency.FormattingEnabled = true;
+            cmbBoxCurrency.Location = new Point(49, 272);
+            cmbBoxCurrency.Name = "cmbBoxCurrency";
+            cmbBoxCurrency.Size = new Size(194, 23);
+            cmbBoxCurrency.TabIndex = 10;
+            cmbBoxCurrency.SelectedIndexChanged += cmbBoxCurrency_SelectedIndexChanged;
             // 
             // Configuration
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(comboBox1);
+            Controls.Add(cmbBoxCurrency);
             Controls.Add(label4);
-            Controls.Add(textBox1);
+            Controls.Add(txtBoxCompanyName);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "Configuration";
             Size = new Size(620, 530);
+            Load += Configuration_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -113,8 +115,8 @@
         private Label label2;
         private Label label1;
         private Label label3;
-        private TextBox textBox1;
+        private TextBox txtBoxCompanyName;
         private Label label4;
-        private ComboBox comboBox1;
+        private ComboBox cmbBoxCurrency;
     }
 }

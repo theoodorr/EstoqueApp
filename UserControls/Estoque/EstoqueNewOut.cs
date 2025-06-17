@@ -91,6 +91,6 @@ public partial class EstoqueNewOut : UserControl
     }
     private void UpdateTotalQuantity()
     {
-        labelTotal.Text = $"Total: {SelectedProduto.Quantity - (int)inputQuantidade.Value}";
+        labelTotal.Text = $"{SelectedProduto.Quantity - (int)inputQuantidade.Value}";
     }
 }
