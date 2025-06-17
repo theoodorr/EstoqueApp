@@ -46,13 +46,9 @@ namespace EstoqueApp
                 CurrentContent = _estoque;
                 (_estoque as Estoque)!.NewEntryInvoked();
             };
-            home.ImportarTabelaClicked = () =>
-            {
-                // implementar
-            };
             home.ExportarTabelaClicked = () =>
             {
-                (_produtos as Produtos)!.Export?.Invoke();
+                FileClicked();
             };
             CurrentContent = _home;
 
@@ -89,7 +85,7 @@ namespace EstoqueApp
 
         private void FileClicked()
         {
-            throw new NotImplementedException();
+            (_produtos as Produtos)!.Export?.Invoke();
         }
     }
 }

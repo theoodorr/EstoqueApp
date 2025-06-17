@@ -33,7 +33,6 @@
             label3 = new Label();
             btnVerProdutos = new Button();
             btnEntradaDeEstoque = new Button();
-            btnImportTable = new Button();
             btnExportTable = new Button();
             SuspendLayout();
             // 
@@ -87,21 +86,11 @@
             btnEntradaDeEstoque.UseVisualStyleBackColor = true;
             btnEntradaDeEstoque.Click += btnEntradaDeEstoque_Click;
             // 
-            // btnImportTable
-            // 
-            btnImportTable.Location = new Point(162, 303);
-            btnImportTable.Name = "btnImportTable";
-            btnImportTable.Size = new Size(122, 55);
-            btnImportTable.TabIndex = 10;
-            btnImportTable.Text = "Importar tabela";
-            btnImportTable.UseVisualStyleBackColor = true;
-            btnImportTable.Click += btnImportTable_Click;
-            // 
             // btnExportTable
             // 
-            btnExportTable.Location = new Point(313, 303);
+            btnExportTable.Location = new Point(162, 301);
             btnExportTable.Name = "btnExportTable";
-            btnExportTable.Size = new Size(122, 55);
+            btnExportTable.Size = new Size(273, 55);
             btnExportTable.TabIndex = 11;
             btnExportTable.Text = "Exportar tabela";
             btnExportTable.UseVisualStyleBackColor = true;
@@ -112,7 +101,6 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(btnExportTable);
-            Controls.Add(btnImportTable);
             Controls.Add(btnEntradaDeEstoque);
             Controls.Add(btnVerProdutos);
             Controls.Add(label3);
@@ -131,7 +119,6 @@
         private Label label3;
         private Button btnVerProdutos;
         private Button btnEntradaDeEstoque;
-        private Button btnImportTable;
         private Button btnExportTable;
     }
 }

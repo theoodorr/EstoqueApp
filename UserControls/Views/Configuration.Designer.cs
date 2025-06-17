@@ -72,7 +72,7 @@
             txtBoxCompanyName.Name = "txtBoxCompanyName";
             txtBoxCompanyName.Size = new Size(194, 23);
             txtBoxCompanyName.TabIndex = 8;
-            txtBoxCompanyName.Text = "Zeca da silva";
+            txtBoxCompanyName.Text = "Ibis Vitória Aeroporto";
             // 
             // label4
             // 

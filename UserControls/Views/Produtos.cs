@@ -39,7 +39,8 @@ namespace EstoqueApp.UserControls.Views
 
         private void dataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridView.SelectedCells.Count > 0 && dataGridView.SelectedCells[1] is not null)
+            if (dataGridView.SelectedCells.Count > 0 && dataGridView.SelectedCells[1] is not null
+            && dataGridView.SelectedCells[1].Value is not null)
             {
                 SelectedProduto = produtosHandler.GetItemByName(dataGridView.SelectedCells[1].Value.ToString()!);
             }
@@ -79,7 +80,7 @@ namespace EstoqueApp.UserControls.Views
                 {
                     produtosHandler.RemoveProduto(SelectedProduto);
                 }
-                
+
                 btnDelete.Enabled = btnEdit.Enabled = false;
                 dataGridView.ClearSelection();
                 UpgradeGrid();
