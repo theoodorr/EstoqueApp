@@ -40,17 +40,22 @@ namespace EstoqueApp.UserControls.Estoque
             };
             btnNewEntry.Click += (sender, e) =>
             {
-                if (SelectedProduto is not null)
+                if (MessageBox.Show("Deseja adicionar o produto ao estoque?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    produtosHandler.AddEntry(SelectedProduto, (int)inputQuantidade.Value);
-                    produtosHandler.SaveProdutos();
-                    NewEntryAdded?.Invoke();
-                }
-                else
-                {
-                    MessageBox.Show("Selecione um produto válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (SelectedProduto is not null)
+                    {
+                        produtosHandler.AddEntry(SelectedProduto, (int)inputQuantidade.Value);
+                        produtosHandler.SaveProdutos();
+                        NewEntryAdded?.Invoke();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Selecione um produto válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             };
+
+            labelTotal.Text = "";
         }
 
         private void EstoqueNewEntry_Load(object sender, EventArgs e)
